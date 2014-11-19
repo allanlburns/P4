@@ -13,5 +13,31 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	//return "Hello world";
+	return View::make('index');
 });
+
+/*Route::get('/lorem', function()
+{
+	return View::make('lorem');
+
+});
+
+Route::post('/lorem', function()
+{
+	return View::make('lorem');
+
+});
+
+Route::get('/user-gen', function()
+{
+
+	return View::make('user-gen');
+});
+
+Route::post('/user-gen', function()
+{
+	return View::make('user-gen');
+});*/
+
+?>
