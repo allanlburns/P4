@@ -45,7 +45,8 @@ Route::get('mysql-test', function() {
     $results = DB::select('SHOW DATABASES;');
 
     # If the "Pre" package is not installed, you should output using print_r instead
-    echo Pre::render($results);
+    //echo Pre::render($results);
+   print_r ($results);
 
 });
 
