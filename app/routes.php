@@ -17,27 +17,21 @@ Route::get('/', function()
 	return View::make('index');
 });
 
-/*Route::get('/lorem', function()
-{
-	return View::make('lorem');
+// test route for environment function from lecture 8 notes:
+
+Route::get('/get-environment',function() {
+
+    echo "Environment: ".App::environment();
 
 });
 
-Route::post('/lorem', function()
-{
-	return View::make('lorem');
+//Trigger-error route as per lecture 8 notes:
+
+Route::get('/trigger-error',function() {
+
+    # Class Foobar should not exist, so this should create an error
+    $foo = new Foobar;
 
 });
-
-Route::get('/user-gen', function()
-{
-
-	return View::make('user-gen');
-});
-
-Route::post('/user-gen', function()
-{
-	return View::make('user-gen');
-});*/
 
 ?>
