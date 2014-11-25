@@ -1,9 +1,6 @@
 <?php
 
-//created 11/20 to get practice making a controller with RESTful Routing 
-//using php artisan
-
-class UserController extends \BaseController {
+class IndexController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
