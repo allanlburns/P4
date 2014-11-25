@@ -36,6 +36,9 @@ Route::get('/trigger-error',function() {
 
 //MySQL test route from lecture 8 notes/database configuration:
 
+#Specify namespace:
+//use Paste\Pre;
+
 Route::get('mysql-test', function() {
 
     # Print environment
@@ -45,8 +48,9 @@ Route::get('mysql-test', function() {
     $results = DB::select('SHOW DATABASES;');
 
     # If the "Pre" package is not installed, you should output using print_r instead
-    //echo Pre::render($results);
-   print_r ($results);
+   // echo Pre::render($results);
+    # If Pre not installed use: 
+    print_r ($results);
 
 });
 
