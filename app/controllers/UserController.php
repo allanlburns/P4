@@ -1,7 +1,7 @@
 <?php
 
-//created 11/20 to get practice making a controller with RESTful Routing 
-//using php artisan
+//created 11/20 for lecture 11 to get practice making
+//a controller with RESTful Routing using php artisan
 
 class UserController extends \BaseController {
 
