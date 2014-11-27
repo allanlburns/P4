@@ -1,0 +1,3 @@
+class Book extends Eloquent {
+
+}
