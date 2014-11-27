@@ -27,12 +27,12 @@ Route::get('/add-customer', function() {
     $customer = new Customer();
 
     #Set (whatever that means)
-    $customer->first_name = 'Allan';
-    $customer->last_name = 'Burns';
-    $customer->email = 'allanlburns@yahoo.com';
-    $customer->address = '104 Brooks St. Brighton, MA 20135';
+    $customer->first_name = 'Todd';
+    $customer->last_name = 'Dziobak';
+    $customer->email = 't_dziobak@yahoo.com';
+    $customer->address = '104 Washington St. Westwood, MA 20135';
     $customer->phone = '(555) 555-5555';
-    $customer->birthday = '08/15/1986';
+    $customer->birthday = '04/18/1986';
 
     # This is where the Eloquent ORM magic happens
     $customer->save();
@@ -54,8 +54,41 @@ Route::get('/log-in', function() {
 
 });
 
+//Route for log-out:
+
+Route::get('/log-out', function() {
 
 
+
+    #do somethoutg with this later, obviously
+
+    echo 'log out on this page';
+
+
+});
+
+
+//Route for practice reading in CRUD operations from Lecture 9 notes/Eloquent ORM
+
+Route::get('/practice-reading', function() {
+
+    # The all() method will fetch all the rows from a Model/table
+    $customers = Customer::all();
+
+    # Make sure we have results before trying to print them...
+    if($customers->isEmpty() != TRUE) {
+
+        # Typically we'd pass $customers to a View, but for quick and dirty demonstration, let's just output here...
+        foreach($customers as $customer) {
+            echo $customer->first_name.'<br>';
+            echo $customer->last_name.'<br><br>';
+        }
+    }
+    else {
+        return 'No customers found';
+    }
+
+});
 
 
 
