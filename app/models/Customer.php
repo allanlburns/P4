@@ -1,3 +1,7 @@
-class Book extends Eloquent {
+<?php
+
+class Customer extends Eloquent {
 
 }
+
+?>

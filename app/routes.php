@@ -17,6 +17,52 @@ Route::get('/', function()
 	return View::make('index');
 });
 
+
+//Route for creating new customer in customers table
+//based on 'practice-creating' route from Lecture 9 notes/Eloquent ORM:
+
+Route::get('/add-customer', function() {
+
+    #Instantiate new Customer model class
+    $customer = new Customer();
+
+    #Set (whatever that means)
+    $customer->first_name = 'Allan';
+    $customer->last_name = 'Burns';
+    $customer->email = 'allanlburns@yahoo.com';
+    $customer->address = '104 Brooks St. Brighton, MA 20135';
+    $customer->phone = '(555) 555-5555';
+    $customer->birthday = '08/15/1986';
+
+    # This is where the Eloquent ORM magic happens
+    $customer->save();
+
+    return 'A new customer has been added! Check your database to see...';
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // test route for environment function from lecture 8 notes/environments:
 
 Route::get('/get-environment',function() {
@@ -52,6 +98,8 @@ Route::get('mysql-test', function() {
     # If Pre not installed use: print_r ($results);
 
 });
+
+//Debug route from Lecture 8 notes:
 
 Route::get('/debug', function() {
 
