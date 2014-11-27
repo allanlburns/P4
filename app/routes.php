@@ -41,6 +41,18 @@ Route::get('/add-customer', function() {
 
 });
 
+//Route for log-in:
+
+Route::get('/log-in', function() {
+
+
+
+    #do something with this later, obviously
+
+    echo 'log in on this page';
+
+
+});
 
 
 
