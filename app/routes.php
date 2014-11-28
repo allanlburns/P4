@@ -50,7 +50,7 @@ Route::get('/add-comic', function() {
     $comic = new comic();
 
     #Set (whatever that means)
-    $comic->title = 'Daredevil';
+    $comic->title = 'Thor';
     $comic->publisher = 'Marvel';
     
     # This is where the Eloquent ORM magic happens
