@@ -41,6 +41,25 @@ Route::get('/add-customer', function() {
 
 });
 
+//Route for creating new comic in comics table
+//based on 'practice-creating' route from Lecture 9 notes/Eloquent ORM:
+
+Route::get('/add-comic', function() {
+
+    #Instantiate new comic model class
+    $comic = new comic();
+
+    #Set (whatever that means)
+    $comic->title = 'Daredevil';
+    $comic->publisher = 'Marvel';
+    
+    # This is where the Eloquent ORM magic happens
+    $comic->save();
+
+    return 'A new comic has been added! Check your database to see...';
+
+});
+
 //Route for log-in:
 
 Route::get('/log-in', function() {
