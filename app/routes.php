@@ -27,12 +27,12 @@ Route::get('/add-customer', function() {
     $customer = new Customer();
 
     #Set (whatever that means)
-    $customer->first_name = 'Todd';
-    $customer->last_name = 'Dziobak';
-    $customer->email = 't_dziobak@yahoo.com';
-    $customer->address = '104 Washington St. Westwood, MA 20135';
+    $customer->first_name = 'Jimmy';
+    $customer->last_name = 'Jam';
+    $customer->email = 'jimmy_jam@yahoo.com';
+    $customer->address = '9 Oxford St. Brixton, UK 20135';
     $customer->phone = '(555) 555-5555';
-    $customer->birthday = '04/18/1986';
+    $customer->birthday = '04/18/1979';
 
     # This is where the Eloquent ORM magic happens
     $customer->save();
@@ -127,6 +127,26 @@ Route::get('/practice-updating', function() {
     }
     else {
         return "customer not found, can't update.";
+    }
+
+});
+
+Route::get('/practice-deleting', function() {
+
+    # First get a customer to delete
+    $customer = customer::where('first_name', 'LIKE', '%Jimmy%')->first();
+
+    # If we found the customer, delete it
+    if($customer) {
+
+        # Goodbye!
+        $customer->delete();
+
+        return "Deletion complete; check the database to see if it worked...";
+
+    }
+    else {
+        return "Can't delete - customer not found.";
     }
 
 });
