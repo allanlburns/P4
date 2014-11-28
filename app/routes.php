@@ -107,7 +107,29 @@ Route::get('/practice-reading-one-customer', function() {
 });
 
 
+//Route for practicing updating from Lecture 9 notes/Eloquent ORM
 
+Route::get('/practice-updating', function() {
+
+    # First get a customer to update
+    $customer = customer::where('first_name', 'LIKE', '%Todd%')->first();
+
+    # If we found the customer, update it
+    if($customer) {
+
+        # Give it a different title
+        $customer->phone = '(555) 555-5444';
+
+        # Save the changes
+        $customer->save();
+
+        return "Update complete; check the database to see if your update worked...";
+    }
+    else {
+        return "customer not found, can't update.";
+    }
+
+});
 
 
 
