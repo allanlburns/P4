@@ -91,7 +91,20 @@ Route::get('/practice-reading', function() {
 });
 
 
+//Route for practice reading one specific customer in CRUD operations from Lecture 9 notes/Eloquent ORM
 
+Route::get('/practice-reading-one-customer', function() {
+
+    $customer = customer::where('first_name', 'LIKE', '%Garrett%')->first();
+
+    if($customer) {
+        return $customer->first_name . '<br>' . $customer->last_name;        
+    }
+    else {
+        return 'customer not found.';
+    }
+
+});
 
 
 
