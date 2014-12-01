@@ -62,13 +62,13 @@ Route::get('/add-comic', function() {
 
 //Route to add stores. I'll comment this out or change the functionality:
 
-oute::get('/add-store', function() {
+Route::get('/add-store', function() {
 
     #Instantiate new store model class
     $store = new store();
 
     #Set (whatever that means)
-    $store->store_name = 'The Woods';
+    $store->store_name = 'Coolidge';
     
     
     # This is where the Eloquent ORM magic happens
