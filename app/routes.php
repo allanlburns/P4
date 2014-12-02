@@ -13,8 +13,8 @@
 
 Route::get('/', function()
 {
-	//return "Hello world";
-	return View::make('index');
+    //return "Hello world";
+    return View::make('index');
 });
 
 
