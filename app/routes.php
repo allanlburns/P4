@@ -82,7 +82,7 @@ Route::get('/add-store', function() {
     $store = new store();
 
     #Set (whatever that means)
-    $store->store_name = 'Coolidge';
+    $store->store_name = 'Harvard';
     
     
     # This is where the Eloquent ORM magic happens
