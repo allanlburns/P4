@@ -46,7 +46,7 @@ Route::get('/add-customer', function() {
 
 Route::get('/add-comic', function() {
 
-    #Instantiate new comic model class
+    /*#Instantiate new comic model class
     $comic = new comic();
 
     #Set (whatever that means)
@@ -54,6 +54,20 @@ Route::get('/add-comic', function() {
     $comic->publisher = 'Boom';
     
     # This is where the Eloquent ORM magic happens
+    $comic->save();
+
+    return 'A new comic has been added! Check your database to see...';*/
+
+    return View::make('add-comic');
+
+});
+
+Route::post('/add-comic', function() {
+
+    $comic = new comic();
+    $comic->title = $_POST['title'];
+    $comic->publisher = $_POST['publisher'];
+
     $comic->save();
 
     return 'A new comic has been added! Check your database to see...';
@@ -110,6 +124,24 @@ Route::get('/log-out', function() {
 
 
 });
+
+
+#test route from Lecture 10 video:
+
+/*Route::get('/test', function() {
+
+    $comics = $Comic::all();
+
+    foreach ($books as $book) {
+        echo $book->title;
+        echo $book->publisher;
+    }
+
+});
+
+*/
+
+
 
 
 //Route for practice reading in CRUD operations from Lecture 9 notes/Eloquent ORM
