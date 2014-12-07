@@ -2,10 +2,16 @@
 
 class Store extends Eloquent {
 
+	public function customer() {
+		#Store has many customers
+		# One-to-many relationship between stores and customers:
+		return $this->hasMany('Customer');
+
+	}
+
 	public function comic() {
-		#Store has many comics
-		# One-to-many relationship between stores and comics:
-		return $this->hasMany('Comic');
+		#Store belongs to many Comics
+		return $this->belongsToMany('Comic');
 
 	}
 }
