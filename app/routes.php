@@ -38,7 +38,7 @@ Route::post('/signup',
         function() {
 
             $user = new User;
-            $user->email    = Input::get('email');
+            $user->email = Input::get('email');
             $user->password = Hash::make(Input::get('password'));
 
             # Try to add the user 
@@ -53,11 +53,56 @@ Route::post('/signup',
             # Log the user in
             Auth::login($user);
 
-            return Redirect::to('/list')->with('flash_message', 'Welcome to Foobooks!');
+            return Redirect::to('/')->with('flash_message', 'Welcome to the Online Subscription Interface!');
 
         }
     )
 );
+
+//Get route for log-in, from notes:
+
+Route::get('/login',
+    array(
+        'before' => 'guest',
+        function() {
+            return View::make('login');
+        }
+    )
+);
+
+//Post route for log-in, from notes:
+Route::post('/login', 
+    array(
+        'before' => 'csrf', 
+        function() {
+
+            $credentials = Input::only('email', 'password');
+
+            if (Auth::attempt($credentials, $remember = true)) {
+                return Redirect::intended('/')->with('flash_message', 'Welcome Back!');
+            }
+            else {
+                return Redirect::to('/login')->with('flash_message', 'Log in failed; please try again.');
+            }
+
+            return Redirect::to('login');
+        }
+    )
+);
+
+//Log-out route:
+
+# /app/routes.php
+Route::get('/logout', function() {
+
+    # Log out
+    Auth::logout();
+
+    # Send them to the homepage
+    return Redirect::to('/');
+
+});
+
 
 
 //Route for creating new customer in customers table
