@@ -33,6 +33,7 @@ Route::get('/add-customer', function() {
     $customer->address = '9 Oxford St. Brixton, UK 20135';
     $customer->phone = '(555) 555-5555';
     $customer->birthday = '04/18/1979';
+    $customer->store_id = 1;
 
     # This is where the Eloquent ORM magic happens
     $customer->save();

@@ -25,6 +25,8 @@ class CreateCustomersTable extends Migration {
 			$table->string('address');
 			$table->string('phone');
 			$table->string('birthday');
+			$table->integer('store_id')->unsigned();
+			$table->foreign('store_id')->references('id')->on('stores');
 		});
 	}
 
