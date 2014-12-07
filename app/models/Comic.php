@@ -9,9 +9,9 @@ class comic extends Eloquent {
 
 	}
 
-	public function customer() {
-		#Comic belongs to many Customers
-		return $this->belongsToMany('Customer');
+	public function user() {
+		#Comic belongs to many Users
+		return $this->belongsToMany('User');
 
 	}
 	

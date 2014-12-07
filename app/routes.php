@@ -17,6 +17,48 @@ Route::get('/', function()
     return View::make('index');
 });
 
+//Route for signup, pretty much copied from Lecture 10 notes/Authentication:
+
+// app/routes.php`:
+
+Route::get('/signup',
+    array(
+        'before' => 'guest',
+        function() {
+            return View::make('signup');
+        }
+    )
+);
+
+//Post route for signup, again, straight from notes:
+
+Route::post('/signup', 
+    array(
+        'before' => 'csrf', 
+        function() {
+
+            $user = new User;
+            $user->email    = Input::get('email');
+            $user->password = Hash::make(Input::get('password'));
+
+            # Try to add the user 
+            try {
+                $user->save();
+            }
+            # Fail
+            catch (Exception $e) {
+                return Redirect::to('/signup')->with('flash_message', 'Sign up failed; please try again.')->withInput();
+            }
+
+            # Log the user in
+            Auth::login($user);
+
+            return Redirect::to('/list')->with('flash_message', 'Welcome to Foobooks!');
+
+        }
+    )
+);
+
 
 //Route for creating new customer in customers table
 //based on 'practice-creating' route from Lecture 9 notes/Eloquent ORM:
