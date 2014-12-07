@@ -27,13 +27,13 @@ Route::get('/add-customer', function() {
     $customer = new Customer();
 
     #Set (whatever that means)
-    $customer->first_name = 'Jimmy';
-    $customer->last_name = 'Jam';
-    $customer->email = 'jimmy_jam@yahoo.com';
-    $customer->address = '9 Oxford St. Brixton, UK 20135';
+    $customer->first_name = 'Pat';
+    $customer->last_name = 'Tobin';
+    $customer->email = 'p.tobin.junior.the5th@gmail.com';
+    $customer->address = '586 Washington Street Jamaica Plain, MA 02135';
     $customer->phone = '(555) 555-5555';
-    $customer->birthday = '04/18/1979';
-    $customer->store_id = 1;
+    $customer->birthday = '11/15/1988';
+    $customer->store_id = 4;
 
     # This is where the Eloquent ORM magic happens
     $customer->save();
