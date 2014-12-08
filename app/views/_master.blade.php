@@ -4,7 +4,7 @@
 	<title>@yield('title', 'Online Comic Subscription Interface!')</title>
 </head>
 <body>
-	<h1>Welcome to the Comic Online Subscription Interface!</h1>
+	<h1>Allan's Online Comic Subscription Interface!</h1>
 		@if(Auth::check())
 			<a href='/logout'>Log out {{ Auth::user()->email; }}</a>
 			
