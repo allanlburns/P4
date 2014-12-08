@@ -58,7 +58,7 @@ Route::post('/signup',
             # Log the user in
             Auth::login($user);
 
-            return Redirect::to('/add-comic')->with('flash_message', 'Welcome to the Online Subscription Interface!');
+            return Redirect::to('/pull-list')->with('flash_message', 'Manage your pull list here');
 
         }
     )
@@ -116,35 +116,6 @@ Route::get('/pull-list', function() {
 Route::post('/pull-list', function() {
 
     //We'll do something with this laster. Forms and stuff.
-});
-
-
-
-
-
-
-//Route for creating new customer in customers table
-//based on 'practice-creating' route from Lecture 9 notes/Eloquent ORM:
-
-Route::get('/add-customer', function() {
-
-    #Instantiate new Customer model class
-    $customer = new Customer();
-
-    #Set (whatever that means)
-    $customer->first_name = 'Pat';
-    $customer->last_name = 'Tobin';
-    $customer->email = 'p.tobin.junior.the5th@gmail.com';
-    $customer->address = '586 Washington Street Jamaica Plain, MA 02135';
-    $customer->phone = '(555) 555-5555';
-    $customer->birthday = '11/15/1988';
-    $customer->store_id = 4;
-
-    # This is where the Eloquent ORM magic happens
-    $customer->save();
-
-    return 'A new customer has been added! Check your database to see...';
-
 });
 
 //Route for creating new comic in comics table
