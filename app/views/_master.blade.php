@@ -5,14 +5,13 @@
 </head>
 <body>
 	<h1>Welcome to the Comic Online Subscription Interface!</h1>
-	<ul>
 		@if(Auth::check())
-			<li><a href='/logout'>Log out {{ Auth::user()->email; }}</a></li>
+			<a href='/logout'>Log out {{ Auth::user()->email; }}</a>
 			
 		@else
-			<li><a href='/signup'>Sign up</a> or <a href='/login'>Log in</a></li>
+			<a href='/signup'>Sign up</a> or <a href='/login'>Log in</a>
 		@endif
-		</ul>
+ 
 	@yield('content')
 </body>
 </html>

@@ -108,6 +108,19 @@ Route::get('/logout', function() {
 
 });
 
+Route::get('/pull-list', function() {
+
+    return View::make('pull-list');
+});
+
+Route::post('/pull-list', function() {
+
+    //We'll do something with this laster. Forms and stuff.
+});
+
+
+
+
 
 
 //Route for creating new customer in customers table
