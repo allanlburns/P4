@@ -40,7 +40,12 @@ Route::post('/signup',
             $user = new User;
             $user->email = Input::get('email');
             $user->password = Hash::make(Input::get('password'));
-
+            $user->first_name = Input::get('first_name');
+            $user->last_name = Input::get('last_name');
+            $user->address = Input::get('address');
+            $user->phone = Input::get('phone');
+            $user->birthday = Input::get('birthday');
+            $user->store_id = Input::get('store_id');
             # Try to add the user 
             try {
                 $user->save();
@@ -53,7 +58,7 @@ Route::post('/signup',
             # Log the user in
             Auth::login($user);
 
-            return Redirect::to('/')->with('flash_message', 'Welcome to the Online Subscription Interface!');
+            return Redirect::to('/add-comic')->with('flash_message', 'Welcome to the Online Subscription Interface!');
 
         }
     )

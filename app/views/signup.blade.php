@@ -25,6 +25,10 @@
 
     Birthday:<br>
     {{ Form::text('birthday') }}<br><br>
+
+    Your Store:<br>
+    {{ Form::text('store_id') }}<br><br>
+
     
 
     {{ Form::submit('Submit') }}
