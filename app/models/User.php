@@ -36,4 +36,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	}
 
+	public function pull() {
+        # User belongs to many Pulls
+        return $this->belongsToMany('Pull');
+    }
+
 }

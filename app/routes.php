@@ -118,6 +118,22 @@ Route::post('/pull-list', function() {
     //We'll do something with this laster. Forms and stuff.
 });
 
+Route::get('pull-list/add', function() {
+
+    return View::Make('pull-list-add')
+});
+
+Route::post('pull-list/add', function() {
+
+   /* $comic = new comic();
+    $comic->title = $_POST['title'];
+    $comic->publisher = $_POST['publisher'];
+
+    $comic->save();*/
+
+    return Redirect::to('/pull-list/add')->with('flash_message', 'A new comic has been added to your pull list!');
+});
+
 //Route for creating new comic in comics table
 //based on 'practice-creating' route from Lecture 9 notes/Eloquent ORM:
 
@@ -147,7 +163,7 @@ Route::post('/add-comic', function() {
 
     $comic->save();
 
-    return 'A new comic has been added! Check your database to see...';
+    return Redirect::to('/add-comic')->with('flash_message', 'A new comic has been added! Check your database to see...');
 
 });
 
