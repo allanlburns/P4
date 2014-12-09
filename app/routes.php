@@ -120,36 +120,26 @@ Route::post('/pull-list', function() {
 
 Route::get('pull-list/add', function() {
 
-    return View::Make('pull-list-add')
+    return View::Make('pull-list-add');
 });
 
 Route::post('pull-list/add', function() {
 
-   /* $comic = new comic();
-    $comic->title = $_POST['title'];
-    $comic->publisher = $_POST['publisher'];
+    $comic_user = new comic_user();
+    $comic_user->user_id = 3;
+    $comic_user->comic_id = 8;
 
-    $comic->save();*/
+    $comic_user->save();
 
     return Redirect::to('/pull-list/add')->with('flash_message', 'A new comic has been added to your pull list!');
+
+    
 });
 
 //Route for creating new comic in comics table
 //based on 'practice-creating' route from Lecture 9 notes/Eloquent ORM:
 
 Route::get('/add-comic', function() {
-
-    /*#Instantiate new comic model class
-    $comic = new comic();
-
-    #Set (whatever that means)
-    $comic->title = 'The Woods';
-    $comic->publisher = 'Boom';
-    
-    # This is where the Eloquent ORM magic happens
-    $comic->save();
-
-    return 'A new comic has been added! Check your database to see...';*/
 
     return View::make('add-comic');
 
@@ -217,24 +207,6 @@ Route::get('/log-out', function() {
 
 
 });
-
-
-#test route from Lecture 10 video:
-
-/*Route::get('/test', function() {
-
-    $comics = $Comic::all();
-
-    foreach ($books as $book) {
-        echo $book->title;
-        echo $book->publisher;
-    }
-
-});
-
-*/
-
-
 
 
 //Route for practice reading in CRUD operations from Lecture 9 notes/Eloquent ORM
