@@ -125,11 +125,28 @@ Route::get('pull-list/add', function() {
 
 Route::post('pull-list/add', function() {
 
-    $comic_user = new comic_user();
-    $comic_user->user_id = 3;
-    $comic_user->comic_id = 8;
+    //$comic = Comic::find(8);
+    //dd(Auth::user());
 
-    $comic_user->save();
+    DB::table('comic_user')->insert(array('comic_id' => 8, 'user_id'=> Auth::user()->id));
+
+
+
+
+
+    /*$comic->user()->attach($user->user_id = 03);
+    $comic->save();*/
+
+    /*$comic->id = $_POST['comic_id'];
+    $user->id = $_POST['user_id'];
+    $comic->user()->attach($user);*/
+
+    
+
+    /*$comic_user->user_id = $_POST['user_id'];
+    $comic_user->comic_id = $_POST['comic_id'];
+    $comic_user->save();*/
+
 
     return Redirect::to('/pull-list/add')->with('flash_message', 'A new comic has been added to your pull list!');
 

@@ -1,6 +1,6 @@
 <?php
 
-class comic extends Eloquent {
+class Comic extends Eloquent {
 
 	public function store() {
 		#Comic belongs to many stores
@@ -15,10 +15,10 @@ class comic extends Eloquent {
 
 	}
 
-	public function pull() {
+	/*public function comic_user() {
         # Comic belongs to many Pulls
-        return $this->belongsToMany('Pull');
-    }
+        return $this->belongsToMany('Comic_user');
+    }*/
 	
 
 }

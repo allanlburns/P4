@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateComicCustomerTable extends Migration {
+class CreateComicUserTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,19 +12,19 @@ class CreateComicCustomerTable extends Migration {
 	 */
 	public function up()
 	{
-		//create comic_customer pivot table
-		Schema::create('comic_customer', function($table) {
+		//create comic_user pivot table
+		Schema::create('comic_user', function($table) {
 
 			# AI, PK
 			# none needed
 
 			# General data...
 			$table->integer('comic_id')->unsigned();
-			$table->integer('customer_id')->unsigned();
+			$table->integer('user_id')->unsigned();
 			
 			# Define foreign keys...
 			$table->foreign('comic_id')->references('id')->on('comics');
-			$table->foreign('customer_id')->references('id')->on('customers');
+			$table->foreign('user_id')->references('id')->on('users');
 			
 		});
 
@@ -39,7 +39,7 @@ class CreateComicCustomerTable extends Migration {
 	{
 		//drop 'em
 
-		Schema::drop('comic_customer');
+		Schema::drop('comic_user');
 	
 	}
 
