@@ -12,9 +12,6 @@ Add a Comic to Your Pull List
 	<p>Comic:</p>
 	{{ Form::text('comic_id') }}
 
-	<p>Customer:</p>
-	{{ Form::text('user_id') }} <br>
-
 	{{ Form::submit() }} 
 
 {{ Form::close() }}
