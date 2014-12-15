@@ -138,40 +138,46 @@ Route::post('pull-list/add', function() {
 
      DB::table('comic_user')->insert(array('comic_id'=>$inputs['comic_id'], 'user_id'=> Auth::user()->id));
 
-
-
-
-
-
-
-
     //dd(Auth::user());
-
     //DB::table('comic_user')->insert(array('comic_id' => 8, 'user_id'=> Auth::user()->id));
-
-
-   
-
-
-
-        
     /*$comic->user()->attach($user->user_id = 03);
     $comic->save();*/
-
     /*$comic->id = $_POST['comic_id'];
     $user->id = $_POST['user_id'];
     $comic->user()->attach($user);*/
-
-    
-
     /*$comic_user->user_id = $_POST['user_id'];
     $comic_user->comic_id = $_POST['comic_id'];
     $comic_user->save();*/
 
 
-    return Redirect::to('/pull-list/add')->with('flash_message', 'A new comic has been added to your pull list!');
-
+    return Redirect::to('/pull-list/add')->with('flash_message', 'A new comic has been added to your list!');
     
+});
+
+Route::get('pull-list/drop', function() {
+
+    return View::Make('pull_list_drop');
+});
+
+Route::post('pull-list/drop', function() {
+
+    $inputs = Input::all();
+    //dd($inputs);
+
+    $comic = Comic::find($inputs['comic_id']);
+//dd($comic);
+
+     DB::table('comic_user')->delete(array('comic_id'=>$inputs['comic_id'], 'user_id'=> Auth::user()->id));
+
+
+    return Redirect::to('/pull-list/view')->with('flash_message', 'A comic has been dropped from your list!');
+
+});
+
+Route::get('pull-list/view', function() {
+
+    return View::make('pull_list_view');
+
 });
 
 //Route for creating new comic in comics table
@@ -212,12 +218,6 @@ Route::post('/add-comic', function() {
     return 'A new store has been added! Check your database to see...';
 
 });*/
-
-
-
-
-
-
 
 
 //Route for log-in:
