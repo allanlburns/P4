@@ -74,8 +74,40 @@ class DatabaseSeeder extends Seeder {
 		$blackmon->store_id = 8;
 		$blackmon->password = 'Dylf7DeOSOvilLlBtsDgPtLWFCzk249xya1tStNzYitfLLqR9Q8ldDUdkLBn';
 		$blackmon->save();
-		
 
+		$quincy = new Store;
+		$quincy->store_name = 'Quincy';
+		$quincy->save();
+
+		$allston = new Store;
+		$allston->store_name = 'Allston';
+		$allston->save();
+
+		$brockton = new Store;
+		$brockton->store_name = 'Brockton';
+		$brockton->save();
+
+		$norwood = new Store;
+		$norwood->store_name = 'Norwood';
+		$norwood->save();
+
+		$malden = new Store;
+		$malden->store_name = 'Malden';
+		$malden->save();
+
+		$newbedford = new Store;
+		$newbedford->store_name = 'New Bedford';
+		$newbedford->save();
+
+		$coolidge = new Store;
+		$coolidge->store_name = 'Coolidge Corner';
+		$coolidge->save();
+
+		$harvard = new Store;
+		$harvard->store_name = 'Harvard Square';
+		$harvard->save();
+
+		
 
 
 	}
