@@ -18,6 +18,8 @@ Your Profile
 
 <br><br>
 
+<a href='/profile/delete'>Delete profile</a>
+
 
 @stop
 

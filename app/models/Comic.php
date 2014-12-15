@@ -15,10 +15,10 @@ class Comic extends Eloquent {
 
 	}
 
-	/*public function comic_user() {
+	public function comic_user() {
         # Comic belongs to many Pulls
         return $this->belongsToMany('Comic_user');
-    }*/
+    }
 	
 
 }

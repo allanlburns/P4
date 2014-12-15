@@ -26,6 +26,8 @@ Route::get('/profile/delete', function() {
 Route::post('/profile/delete', function() {
     
 
+$sql = 'DROP USER Auth::user';
+
 
 });
 

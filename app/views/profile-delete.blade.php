@@ -9,10 +9,13 @@ Delete Your Profile
 
 Are you sure you want to delete your profile?
 
+<p><a href='/profile'>NO</a>, get me out of here!
 
+<p>Yes, I'd like to delete my profile.<br>
 
+{{ Form::open(array('url' => '/profile/delete')) }}
 
-<p>
+{{ Form::submit() }}
 
 <br><br>
 

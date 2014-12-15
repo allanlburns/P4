@@ -1,0 +1,15 @@
+<?php
+class Comic_user extends Eloquent {
+
+public function comic() {
+# Comic_users belong to many Comics
+
+return $this->belongsToMany('Comic');
+}
+
+public function user() {
+# Comic_users belong to many Users
+return $this->belongsToMany('User');
+}
+
+}
