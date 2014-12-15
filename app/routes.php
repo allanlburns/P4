@@ -110,7 +110,7 @@ Route::get('/logout', function() {
 
 Route::get('/pull-list', function() {
 
-    return View::make('pull-list');
+    return View::make('pull_list');
 });
 
 Route::post('/pull-list', function() {
@@ -120,20 +120,41 @@ Route::post('/pull-list', function() {
 
 Route::get('pull-list/add', function() {
 
-    return View::Make('pull-list-add');
+    return View::Make('pull_list_add');
 });
 
 Route::post('pull-list/add', function() {
 
-    //$comic = Comic::find(8);
+//$new = new Comic;
+//$new->title = ""
+    //$inputs = Input::all();
+    //$inputs['id'];
+
+    $inputs = Input::all();
+    //dd($inputs);
+
+    $comic = Comic::find($inputs['comic_id']);
+//dd($comic);
+
+     DB::table('comic_user')->insert(array('comic_id'=>$inputs['comic_id'], 'user_id'=> Auth::user()->id));
+
+
+
+
+
+
+
+
     //dd(Auth::user());
 
-    DB::table('comic_user')->insert(array('comic_id' => 8, 'user_id'=> Auth::user()->id));
+    //DB::table('comic_user')->insert(array('comic_id' => 8, 'user_id'=> Auth::user()->id));
+
+
+   
 
 
 
-
-
+        
     /*$comic->user()->attach($user->user_id = 03);
     $comic->save();*/
 
@@ -158,7 +179,7 @@ Route::post('pull-list/add', function() {
 
 Route::get('/add-comic', function() {
 
-    return View::make('add-comic');
+    return View::make('add_comic');
 
 });
 
@@ -176,7 +197,7 @@ Route::post('/add-comic', function() {
 
 //Route to add stores. I'll comment this out or change the functionality:
 
-Route::get('/add-store', function() {
+/*Route::get('/add-store', function() {
 
     #Instantiate new store model class
     $store = new store();
@@ -190,7 +211,7 @@ Route::get('/add-store', function() {
 
     return 'A new store has been added! Check your database to see...';
 
-});
+});*/
 
 
 
