@@ -11,12 +11,31 @@
 |
 */
 
-Route::get('/', function()
-{
-    //return "Hello world";
+Route::get('/', function() {
     return View::make('index');
 });
 
+Route::get('/profile', function() {
+    return View::make('profile');
+});
+
+Route::get('/profile/delete', function() {
+    return View::make('profile-delete');
+});
+
+Route::post('/profile/delete', function() {
+    
+
+
+});
+
+Route::get('/profile/update', function() {
+    return View::make('profile-update');
+});
+
+Route::post('/profile/update', function() {
+ 
+ });
 //Route for signup, pretty much copied from Lecture 10 notes/Authentication:
 
 // app/routes.php`:

@@ -9,6 +9,15 @@ View Your Pull List
 
 Code to drop a comic:
 
+{{ Form::open(array('url' => '/pull-list/drop')) }}
+
+	<p>Comic:</p>
+	{{ Form::text('comic_id') }}
+
+	{{ Form::submit() }} 
+
+{{ Form::close() }}
+
 
 <p>
 

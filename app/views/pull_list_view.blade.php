@@ -6,11 +6,15 @@ View Your Pull List
 
 <h1>Your current pull list!</h1>
 
+Click <a href='/pull-list/add'>here</a> to add a comic to your list. <br><br>
 
-Click <a href='/pull-list/add'>here</a> to add a comic.
+Click <a href='/pull-list/drop'>here</a> to drop a comic from your list. <br><br>
 
 
-<p>
+<!--   foreach($comics as $comic) {
+            echo $comic->title.'<br>'; -->
+        
+
 
 <br><br>
 
