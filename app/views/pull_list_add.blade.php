@@ -18,6 +18,23 @@ Add a Comic to Your Pull List
 
 {{ Form::close() }}
 
+<br><br>
+
+<h3>Marvel</h3>
+<?php
+
+	$comics = DB::table('comics')->where('publisher', 'LIKE', '%Marvel%')->get(); 
+
+	foreach($comics as $comic) {
+            echo $comic->title . " " . "(id =" . $comic->id. ")".  '<br><br>';
+    }
+?>
+
+<h3>DC</h3><br>
+
+
+<h3>Image</h3>
+
 <?php
 
 	$comics = DB::table('comics')->where('publisher', 'LIKE', '%Image%')->get(); 
@@ -27,8 +44,17 @@ Add a Comic to Your Pull List
     }
 ?>
 
+<h3>IDW</h3>
+<?php
 
-<p>
+	$comics = DB::table('comics')->where('publisher', 'LIKE', '%IDW%')->get(); 
+
+	foreach($comics as $comic) {
+            echo $comic->title . " " . "(id =" . $comic->id. ")".  '<br><br>';
+    }
+?>
+
+
 
 <br><br>
 
