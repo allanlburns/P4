@@ -37,6 +37,10 @@ Route::get('/profile/update', function() {
 
 Route::post('/profile/update', function() {
  
+   // User::where('user', '=', 'Auth::user');
+
+
+
  });
 //Route for signup, pretty much copied from Lecture 10 notes/Authentication:
 
@@ -146,30 +150,11 @@ Route::get('pull-list/add', function() {
 
 Route::post('pull-list/add', function() {
 
-//$new = new Comic;
-//$new->title = ""
-    //$inputs = Input::all();
-    //$inputs['id'];
-
     $inputs = Input::all();
-    //dd($inputs);
 
     $comic = Comic::find($inputs['comic_id']);
-//dd($comic);
 
      DB::table('comic_user')->insert(array('comic_id'=>$inputs['comic_id'], 'user_id'=> Auth::user()->id));
-
-    //dd(Auth::user());
-    //DB::table('comic_user')->insert(array('comic_id' => 8, 'user_id'=> Auth::user()->id));
-    /*$comic->user()->attach($user->user_id = 03);
-    $comic->save();*/
-    /*$comic->id = $_POST['comic_id'];
-    $user->id = $_POST['user_id'];
-    $comic->user()->attach($user);*/
-    /*$comic_user->user_id = $_POST['user_id'];
-    $comic_user->comic_id = $_POST['comic_id'];
-    $comic_user->save();*/
-
 
     return Redirect::to('/pull-list/add')->with('flash_message', 'A new comic has been added to your list!');
     
@@ -186,9 +171,8 @@ Route::post('pull-list/drop', function() {
     //dd($inputs);
 
     $comic = Comic::find($inputs['comic_id']);
-//dd($comic);
 
-     DB::table('comic_user')->delete(array('comic_id'=>$inputs['comic_id'], 'user_id'=> Auth::user()->id));
+    DB::table('comic_user')->delete(array('comic_id'=>$inputs['comic_id'], 'user_id'=> Auth::user()->id));
 
 
     return Redirect::to('/pull-list/view')->with('flash_message', 'A comic has been dropped from your list!');
@@ -201,7 +185,8 @@ Route::get('pull-list/view', function() {
 
 });
 
-//Route for creating new comic in comics table
+//Route for creating new comic in comics table. This route and a drop-route are for admin to be able to add
+//or delete titles to the comics table because of new or cancelled comics
 //based on 'practice-creating' route from Lecture 9 notes/Eloquent ORM:
 
 Route::get('/add-comic', function() {
