@@ -28,6 +28,8 @@ Route::post('/profile/delete', function() {
 
 $sql = 'DROP USER Auth::user';
 
+return Redirect::to('/')->with('flash_message', 'Your profile has been deleted!');
+
 
 });
 
@@ -45,6 +47,7 @@ Route::post('/profile/update', function() {
    $user->email = $_POST['email'];
    $user->save();
    $user->address = $_POST['address'];
+   $user->save();
 
    return Redirect::to('/profile')->with('flash_message', 'Your profile has been updated!');
 
