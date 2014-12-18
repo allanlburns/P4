@@ -6,16 +6,16 @@ Your Profile
 
 <h1>Your information</h1>
 
-<?php
+<?php $user = User::find(Auth::user()->id); ?>
 
-	$user = User::find(Auth::user()->id);
+<p> First Name:				<?php echo $user->first_name . '<br>'; ?>
+<p>	Last Name:				<?php echo $user->last_name . '<br>'; ?>
+<p>	E-mail:					<?php echo $user->email . '<br>'; ?>
+<p>	Address:				<?php echo $user->address . '<br>'; ?>
+<p> Phone Number:   		<?php echo $user->phone . '<br>'; ?>
+<p> Birthday (MM/DD/YYYY):  <?php echo $user->birthday . '<br>'; ?>
+    	
 
-		//foreach ($users as $user) {
-			echo $user->first_name . '<br>';
-			echo $user->last_name . '<br><br>';
-		//}
-    
-?>
 
 <br><br>
 
