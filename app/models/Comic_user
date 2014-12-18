@@ -1,5 +1,5 @@
 <?php
-class Comic_user extends Eloquent {
+class ComicUser extends Eloquent {
 
 public function comic() {
 # Comic_users belong to many Comics

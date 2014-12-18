@@ -32,7 +32,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	public function comic() {
 		#User belongs to many Comics
-		return $this->belongsToMany('Comic');
+		return $this->belongsToMany('Comic', 'comic_user', 'comic_id', 'user_id', 'comic_store', 'Store', 'store_id');
 
 	}
 

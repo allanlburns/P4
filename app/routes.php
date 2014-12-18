@@ -167,14 +167,22 @@ Route::get('pull-list/drop', function() {
 
 Route::post('pull-list/drop', function() {
 
-    $inputs = Input::all();
+  /*$user = Auth::user()->id;
+  $user->comic()->detach->$_POST['comic_id'];*/
+
+
+//this worked for adding, so why the hell won't it work for deleting?
+
+   $inputs = Input::all();
     //dd($inputs);
 
     $comic = Comic::find($inputs['comic_id']);
 
-    DB::table('comic_user')->delete(array('comic_id'=>$inputs['comic_id'], 'user_id'=> Auth::user()->id));
+    //DB::table('comic_user')->delete(array('comic_id'=>$inputs['comic_id'], 'user_id'=> Auth::user()->id));*/
 
+    DB::table('comic_user')->where('comic_id', $inputs['comic_id'])->where('user_id', Auth::user()->id)->delete();
 
+    
     return Redirect::to('/pull-list/view')->with('flash_message', 'A comic has been dropped from your list!');
 
 });

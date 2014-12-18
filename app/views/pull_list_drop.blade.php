@@ -9,12 +9,12 @@ View Your Pull List
 
 {{ Form::open(array('url' => '/pull-list/drop')) }}
 	
-	<h3>enter the comic id # to the right of the title you wish to drop and hit "submit query".</h3>
+	<h3>enter the comic id # to the right of the title you wish to drop and click "drop".</h3>
 	
 	<p>Comic:</p>
 	{{ Form::text('comic_id') }}
 
-	{{ Form::submit() }} 
+	{{ Form::submit('drop') }} 
 
 {{ Form::close() }}
 
@@ -31,7 +31,14 @@ View Your Pull List
 ?>
 
 <h3>DC</h3><br>
+<?php
 
+	$comics = DB::table('comics')->where('publisher', 'LIKE', '%DC%')->get(); 
+
+	foreach($comics as $comic) {
+            echo $comic->title . " " . "(id =" . $comic->id. ")".  '<br><br>';
+    }
+?>
 
 <h3>Image</h3>
 

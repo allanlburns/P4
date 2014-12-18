@@ -6,15 +6,13 @@ Your Profile
 
 <h1>Your information</h1>
 
-<p>Name
+<?php
 
-<p>Email
+	/*$users = DB::table('users')->where(array('user_id'=> Auth::user()->id))->get(); 
 
-<p>Address
-
-<p>Phone
-
-<p>Store
+	echo $user->first_name . "<br>";*/
+    
+?>
 
 <br><br>
 
