@@ -19,7 +19,9 @@ Your Profile
 
 <br><br>
 
-<a href='/profile/delete'>Delete profile</a>
+<a href='/profile/update'>Update profile</a><br>
+
+<a href='/profile/delete'>Delete profile</a><br>
 
 
 @stop

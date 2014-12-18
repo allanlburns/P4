@@ -37,8 +37,16 @@ Route::get('/profile/update', function() {
 
 Route::post('/profile/update', function() {
  
-   // User::where('user', '=', 'Auth::user');
+   $user = User::find(Auth::user()->id); 
+   $user->first_name = $_POST['first_name'];
+   $user->save();
+   $user->last_name = $_POST['last_name'];
+   $user->save();   
+   $user->email = $_POST['email'];
+   $user->save();
+   $user->address = $_POST['address'];
 
+   return Redirect::to('/profile')->with('flash_message', 'Your profile has been updated!');
 
 
  });
@@ -166,12 +174,6 @@ Route::get('pull-list/drop', function() {
 });
 
 Route::post('pull-list/drop', function() {
-
-  /*$user = Auth::user()->id;
-  $user->comic()->detach->$_POST['comic_id'];*/
-
-
-//this worked for adding, so why the hell won't it work for deleting?
 
    $inputs = Input::all();
     //dd($inputs);
