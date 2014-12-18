@@ -6,7 +6,7 @@
 <body>
 	<h1>Allan's Online Comic Subscription Interface!</h1>
 		@if(Auth::check())
-			<a href='/logout'>Log out {{ Auth::user()->email; }}</a>     |		<a href='/profile'>profile</a>
+			<a href='/logout'>Log out {{ Auth::user()->email; }}</a>     |		<a href='/profile'>profile</a>	|	<a href='/pull-list'>pull list</a>
 			
 		@else
 			<a href='/signup'>Sign up</a> or <a href='/login'>Log in</a>

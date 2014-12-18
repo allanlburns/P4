@@ -8,9 +8,12 @@ Your Profile
 
 <?php
 
-	/*$users = DB::table('users')->where(array('user_id'=> Auth::user()->id))->get(); 
+	$users = User::all(); 
 
-	echo $user->first_name . "<br>";*/
+		foreach ($users as $user) {
+			echo $user->first_name . '<br>';
+			//echo $user->last_name . '<br>';
+		}
     
 ?>
 
