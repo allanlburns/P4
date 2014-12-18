@@ -8,7 +8,7 @@ Your Profile
 
 <?php
 
-	$user = User::find(3);
+	$user = User::find(Auth::user()->id);
 
 		//foreach ($users as $user) {
 			echo $user->first_name . '<br>';
