@@ -8,12 +8,12 @@ Your Profile
 
 <?php
 
-	$users = User::all(); 
+	$user = User::find(3);
 
-		foreach ($users as $user) {
+		//foreach ($users as $user) {
 			echo $user->first_name . '<br>';
-			//echo $user->last_name . '<br>';
-		}
+			echo $user->last_name . '<br><br>';
+		//}
     
 ?>
 

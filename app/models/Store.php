@@ -9,7 +9,7 @@ class Store extends Eloquent {
 
 	}
 
-	public function comic() {
+	public function comicS() {
 		#Store belongs to many Comics
 		return $this->belongsToMany('Comic');
 
